@@ -51,3 +51,25 @@ if ('IntersectionObserver' in window) {
 
 const year = document.getElementById('year');
 if (year) year.textContent = new Date().getFullYear();
+
+// Language switch DE / EN (default: browser language, choice is remembered)
+(function () {
+  const titles = {
+    de: document.title,
+    en: 'Kai Mäder – Sound Engineer · Live Sound · Recording · Sound Design'
+  };
+  const els = [...document.querySelectorAll('[data-en]')];
+  els.forEach(el => { el.dataset.de = el.innerHTML; });
+  function setLang(lang) {
+    els.forEach(el => { el.innerHTML = lang === 'en' ? el.dataset.en : el.dataset.de; });
+    document.documentElement.lang = lang;
+    document.documentElement.dataset.lang = lang;
+    document.title = titles[lang];
+    try { localStorage.setItem('lang', lang); } catch (e) {}
+  }
+  let lang = 'de';
+  try { lang = localStorage.getItem('lang') || ((navigator.language || 'de').toLowerCase().startsWith('de') ? 'de' : 'en'); } catch (e) {}
+  setLang(lang);
+  const btn = document.querySelector('.lang-toggle');
+  if (btn) btn.addEventListener('click', () => setLang(document.documentElement.lang === 'de' ? 'en' : 'de'));
+})();
