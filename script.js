@@ -38,5 +38,16 @@ document.querySelectorAll('.video button').forEach(btn => {
   });
 });
 
+// Fade sections in as they scroll into view
+const reveals = document.querySelectorAll('.reveal');
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver(entries => entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), { rootMargin: '0px 0px -8% 0px' });
+  reveals.forEach(el => io.observe(el));
+} else {
+  reveals.forEach(el => el.classList.add('in'));
+}
+
 const year = document.getElementById('year');
 if (year) year.textContent = new Date().getFullYear();
