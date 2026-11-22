@@ -152,14 +152,15 @@ h3 { font-size: 18px; margin: 0 0 8px; font-weight: 600; }
 .seasons { margin-top: 44px; display: grid; gap: 0; }
 .season { display: grid; grid-template-columns: 1fr; gap: 22px; padding: 34px 0; border-top: 1px solid var(--line); }
 .season h3 { font-family: var(--serif); font-weight: 400; font-size: 30px; line-height: 1; color: var(--gold); margin: 0; }
-.season-cols { display: grid; grid-template-columns: 1.6fr 1.25fr .85fr; gap: 32px; }
+.season-cols { display: grid; grid-template-columns: 1.45fr 1fr; gap: 22px; align-items: start; }
 .season p.none { margin: 0; color: var(--muted); }
 .season h4 { margin: 0 0 12px; font-size: 11.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
 .season ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
 .season li b { font-weight: 500; font-size: 15.5px; line-height: 1.35; }
 .season li i { display: block; font-style: normal; color: #cfc5b8; font-size: 13px; margin-top: 1px; }
 .season li span { display: block; color: var(--gold); opacity: .8; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; margin-top: 1px; }
-@media (max-width: 1100px) { .season-cols { grid-template-columns: 1fr 1fr; } .season-cols > .gast { grid-column: 1 / -1; } }
+.season-cols > .gast { grid-column: 1 / -1; }
+.season-cols > .box { border: 1px solid var(--line); background: var(--bg-card); border-radius: 10px; padding: 18px 22px 20px; }
 @media (max-width: 960px) { .season { grid-template-columns: 1fr; gap: 18px; } }
 @media (max-width: 720px) { .season-cols { grid-template-columns: 1fr; gap: 22px; } }
 
@@ -171,8 +172,9 @@ h3 { font-size: 18px; margin: 0 0 8px; font-weight: 600; }
 
 .season-cols > .highlight { grid-column: 1 / -1; border: 1px solid rgba(227,167,64,.5); background: linear-gradient(180deg, rgba(227,167,64,.10), rgba(227,167,64,.03)); border-radius: 10px; padding: 18px 22px 20px; box-shadow: 0 10px 30px -18px rgba(227,167,64,.35); }
 .season-cols > .highlight ul { grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 16px 32px; }
+.season-cols > .oper, .season-cols > .tanz { border-color: rgba(227,167,64,.32); background: linear-gradient(180deg, rgba(227,167,64,.06), rgba(227,167,64,.015)); }
 .season-cols > .highlight h4 { color: var(--gold); }
-.season-cols > .highlight h4::before { content: "★ "; }
+.season-cols > .musical h4::before { content: "★ "; }
 
 .season-cols > .compact ul { gap: 5px; }
 .season-cols > .compact li { font-size: 13px; line-height: 1.4; }
@@ -308,3 +310,5 @@ h3 { font-size: 18px; margin: 0 0 8px; font-weight: 600; }
   .about-claim br { display: none; }
 }
 
+#linz { padding-bottom: 60px; }
+#referenzen { padding-top: 60px; }
