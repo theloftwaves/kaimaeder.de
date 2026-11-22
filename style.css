@@ -290,3 +290,20 @@ h3 { font-size: 18px; margin: 0 0 8px; font-weight: 600; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* About: heading left, text right, full-width photo below */
+.about { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.15fr); gap: 72px; align-items: start; }
+.about-head h2 { margin-bottom: 0; }
+.about-text { padding-top: 38px; }
+.about-text p { margin: 0 0 18px; }
+.about-claim { font-family: var(--serif); font-size: 22px; line-height: 1.35; color: var(--gold); margin-top: 28px !important; }
+#ueber { padding-bottom: 72px; }
+.photo-saal {
+  background: linear-gradient(180deg, var(--bg) 0%, rgba(11,10,9,0) 22%, rgba(11,10,9,0) 78%, var(--bg-soft) 100%),
+              url(img/photos/theater-saal.jpg) center 40% / cover no-repeat;
+}
+@media (max-width: 900px) {
+  .about { grid-template-columns: minmax(0,1fr); gap: 8px; }
+  .about-head h2 { hyphens: auto; -webkit-hyphens: auto; overflow-wrap: break-word; }
+  .about-text { padding-top: 16px; }
+}
