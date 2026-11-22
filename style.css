@@ -166,10 +166,8 @@ h3 { font-size: 18px; margin: 0 0 8px; font-weight: 600; }
 .season ul.inline { display: block; font-size: 14px; line-height: 1.75; color: #d9d0c3; }
 .season ul.inline li { display: inline; }
 .season ul.inline li:not(:last-child)::after { content: " · "; color: var(--muted); }
-.season ul.inline li.gv { color: var(--gold); }
 .season ul.inline em { font-style: normal; color: var(--muted); font-size: 12.5px; }
 .legend { margin: 26px 0 0; font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 10px; }
-.gv-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--gold); display: inline-block; }
 
 .season-cols > .highlight { grid-column: 1 / -1; border: 1px solid rgba(227,167,64,.5); background: linear-gradient(180deg, rgba(227,167,64,.10), rgba(227,167,64,.03)); border-radius: 10px; padding: 18px 22px 20px; box-shadow: 0 10px 30px -18px rgba(227,167,64,.35); }
 .season-cols > .highlight ul { grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 16px 32px; }
