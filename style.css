@@ -362,3 +362,28 @@ h3 { font-size: 18px; margin: 0 0 8px; font-weight: 600; }
 .lb-next { right: 8px; top: 50%; transform: translateY(-50%); }
 @media (max-width: 720px) { .lightbox button { font-size: 36px; } }
 .season li small { display: block; color: var(--muted); font-size: 12px; margin-top: 2px; }
+/* Menü oben links neben dem Logo */
+html { scroll-padding-top: 78px; }
+.site-header .nav { margin: 0 auto 0 40px; gap: 26px; }
+.site-header .nav a { font-size: 12px; letter-spacing: .14em; color: #cfc5b8; }
+.site-header .nav a:hover { color: var(--gold); }
+.header-right { display: flex; align-items: center; gap: 10px; }
+@media (max-width: 1080px) {
+  html { scroll-padding-top: 112px; }
+  .site-header .wrap { flex-wrap: wrap; height: auto; padding-top: 10px; padding-bottom: 8px; row-gap: 6px; }
+  .site-header .nav { order: 3; display: flex; position: static; flex: 1 0 100%; margin: 0; gap: 6px 22px; flex-wrap: wrap; justify-content: center;
+    background: none; border: 0; padding: 4px 0 2px; flex-direction: row; }
+  .site-header .nav a { padding: 4px 0; font-size: 11.5px; border: 0; }
+  .site-header .nav-toggle { display: none; }
+}
+@media (max-width: 720px) {
+  html { scroll-padding-top: 130px; }
+  .site-header .nav { gap: 4px 16px; }
+  .site-header .nav a { font-size: 11px; letter-spacing: .1em; }
+  .brand span { display: inline; }
+}
+.brand { color: inherit; cursor: pointer; }
+.brand:hover b { color: var(--gold); }
+.foot-links { display: flex; gap: 10px; align-items: center; font-size: 13px; color: var(--muted); }
+.foot-links a { text-decoration: none; color: var(--muted); }
+.foot-links a:hover { color: var(--gold); }

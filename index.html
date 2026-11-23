@@ -11,14 +11,24 @@
   <meta property="og:image" content="https://kaima.at/img/og-kaima.png">
   <meta property="og:type" content="website">
   <link rel="icon" href="img/logo-schwarz.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css?v=20261123b">
+  <link rel="stylesheet" href="style.css?v=20261123f">
 </head>
 <body>
 
 <header class="site-header">
   <div class="wrap">
-    <span class="brand"><img src="img/logo-hell.svg" alt=""><span><b>Kai Mäder</b></span></span>
-    <button class="lang-toggle" type="button" aria-label="Sprache / Language"><span data-l="de">DE</span><span data-l="en">EN</span></button>
+    <a class="brand" href="#top" aria-label="Nach oben"><img src="img/logo-hell.svg" alt=""><span><b>Kai Mäder</b></span></a>
+    <nav class="nav" aria-label="Hauptmenü">
+      <a href="#ueber" data-en="About">Über mich</a>
+      <a href="#leistungen" data-en="Services">Leistungen</a>
+      <a href="#linz" data-en="Productions">Produktionen</a>
+      <a href="#referenzen" data-en="Recordings">Aufnahmen</a>
+      <a href="#videos">Videos</a>
+      <a href="#kontakt" data-en="Contact">Kontakt</a>
+    </nav>
+    <div class="header-right">
+      <button class="lang-toggle" type="button" aria-label="Sprache / Language"><span data-l="de">DE</span><span data-l="en">EN</span></button>
+    </div>
   </div>
 </header>
 
@@ -238,9 +248,10 @@
 <footer class="site-footer">
   <div class="wrap">
     <span class="foot-brand"><img src="img/logo-hell.svg" alt="">© <span id="year">2026</span> Kai Mäder</span>
+    <nav class="foot-links" aria-label="Rechtliches"><a href="#impressum" data-en="Legal notice">Impressum</a><span aria-hidden="true">·</span><a href="#datenschutz" data-en="Privacy policy">Datenschutz</a></nav>
   </div>
 </footer>
 
-<script src="script.js?v=20261123a"></script>
+<script src="script.js?v=20261123c"></script>
 </body>
 </html>
