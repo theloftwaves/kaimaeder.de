@@ -361,3 +361,4 @@ h3 { font-size: 18px; margin: 0 0 8px; font-weight: 600; }
 .lb-prev { left: 8px; top: 50%; transform: translateY(-50%); }
 .lb-next { right: 8px; top: 50%; transform: translateY(-50%); }
 @media (max-width: 720px) { .lightbox button { font-size: 36px; } }
+.season li small { display: block; color: var(--muted); font-size: 12px; margin-top: 2px; }
