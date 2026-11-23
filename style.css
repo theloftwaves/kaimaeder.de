@@ -331,21 +331,33 @@ h3 { font-size: 18px; margin: 0 0 8px; font-weight: 600; }
 .more-rec em { font-style: normal; color: var(--gold); opacity: .8; }
 /* FWL-Regieraum über die ganze Breite */
 .fwl-band { position: relative; width: 100%; margin: 0; height: min(66.7vw, 92vh);
-  background: linear-gradient(180deg, rgba(17,15,14,0) 0%, rgba(17,15,14,0) 82%, #110f0e 100%),
-              url(img/photos/fwl-aufnahmeraum.jpg) center 55% / cover no-repeat; }
+  background: url(img/photos/fwl-aufnahmeraum.jpg) center 55% / cover no-repeat; }
 .fwl-band span { position: absolute; right: 24px; bottom: 18px; font-size: 12px; letter-spacing: .06em; color: var(--muted); }
 .fwl-band + .more-rec { margin-top: 8px; }
 @media (max-width: 720px) { .fwl-band { height: 66.7vw; } }
 #referenzen { padding-bottom: 0; }
-.fwl-area { margin-top: 96px; background: #110f0e; padding: 10px 0 120px; border-top: 1px solid rgba(227,167,64,.6); }
+.fwl-area { margin-top: 96px; background: #110f0e; padding: 0 0 120px; }
 @media (max-width: 720px) { .fwl-area { margin-top: 48px; padding-bottom: 80px; } }
-/* FWL-Fotocollage unter dem Rahmen */
-.fwl-collage { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-top: 28px; }
+/* FWL-Fotocollage: Regieraum groß in der Mitte, je zwei Fotos links und rechts */
+.fwl-collage { display: grid; grid-template-columns: 1fr 2fr 1fr; grid-template-rows: auto auto; gap: 10px; margin-top: 28px; }
 .fwl-collage figure { margin: 0; overflow: hidden; border-radius: 6px; }
-.fwl-collage figure:nth-child(1) { grid-column: span 4; grid-row: span 2; }
-.fwl-collage figure:nth-child(2), .fwl-collage figure:nth-child(3) { grid-column: span 2; }
-.fwl-collage figure:nth-child(n+4) { grid-column: span 2; }
+.fwl-collage figure:nth-child(1) { grid-column: 1; grid-row: 1; }
+.fwl-collage figure:nth-child(2) { grid-column: 2; grid-row: 1 / span 2; }
+.fwl-collage figure:nth-child(3) { grid-column: 1; grid-row: 2; }
+.fwl-collage figure:nth-child(4) { grid-column: 3; grid-row: 1; }
+.fwl-collage figure:nth-child(5) { grid-column: 3; grid-row: 2; }
 .fwl-collage img { display: block; width: 100%; height: 100%; aspect-ratio: 3 / 2; object-fit: cover; filter: saturate(.9); transition: transform .5s; }
+.fwl-collage figure:nth-child(2) img { aspect-ratio: auto; }
 .fwl-collage figure:hover img { transform: scale(1.04); }
-@media (max-width: 720px) { .fwl-collage { grid-template-columns: 1fr 1fr; } .fwl-collage figure:nth-child(n) { grid-column: span 1; grid-row: auto; } .fwl-collage figure:nth-child(1) { grid-column: span 2; } }
-.fwl-collage figure:nth-child(1) img { aspect-ratio: auto; }
+@media (max-width: 720px) { .fwl-collage { grid-template-columns: 1fr 1fr; grid-template-rows: none; } .fwl-collage figure:nth-child(n) { grid-column: auto; grid-row: auto; } .fwl-collage figure:nth-child(2) { grid-column: 1 / -1; order: -1; } .fwl-collage figure:nth-child(2) img { aspect-ratio: 3 / 2; } }
+/* Lightbox für die FWL-Fotos */
+.fwl-collage img { cursor: zoom-in; }
+.lightbox { position: fixed; inset: 0; z-index: 1000; display: none; align-items: center; justify-content: center; background: rgba(8,7,6,.94); }
+.lightbox.open { display: flex; }
+.lightbox img { width: min(92vw, 128vh, 1100px); max-height: 86vh; height: auto; object-fit: contain; border-radius: 6px; box-shadow: 0 30px 80px -20px #000; cursor: pointer; }
+.lightbox button { position: absolute; background: none; border: 0; color: var(--gold); font-size: 44px; line-height: 1; cursor: pointer; padding: 12px 18px; opacity: .85; }
+.lightbox button:hover { opacity: 1; }
+.lb-close { top: 10px; right: 14px; }
+.lb-prev { left: 8px; top: 50%; transform: translateY(-50%); }
+.lb-next { right: 8px; top: 50%; transform: translateY(-50%); }
+@media (max-width: 720px) { .lightbox button { font-size: 36px; } }

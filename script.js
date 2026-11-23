@@ -73,3 +73,41 @@ if (year) year.textContent = new Date().getFullYear();
   const btn = document.querySelector('.lang-toggle');
   if (btn) btn.addEventListener('click', () => setLang(document.documentElement.lang === 'de' ? 'en' : 'de'));
 })();
+
+// Fotos der FWL-Collage beim Anklicken groß anzeigen (Lightbox)
+(function () {
+  const imgs = [...document.querySelectorAll('.fwl-collage img')];
+  if (!imgs.length) return;
+  const box = document.createElement('div');
+  box.className = 'lightbox';
+  box.setAttribute('role', 'dialog');
+  box.setAttribute('aria-modal', 'true');
+  box.innerHTML = '<button class="lb-close" aria-label="Schließen">×</button>' +
+    '<button class="lb-prev" aria-label="Vorheriges Foto">‹</button>' +
+    '<img alt=""><button class="lb-next" aria-label="Nächstes Foto">›</button>';
+  document.body.appendChild(box);
+  const big = box.querySelector('img');
+  let i = 0;
+  function show(n) {
+    i = (n + imgs.length) % imgs.length;
+    big.src = imgs[i].currentSrc || imgs[i].src;
+    big.alt = imgs[i].alt;
+  }
+  function open(n) { show(n); box.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function close() { box.classList.remove('open'); document.body.style.overflow = ''; }
+  imgs.forEach((img, n) => {
+    img.tabIndex = 0;
+    img.addEventListener('click', () => open(n));
+    img.addEventListener('keydown', e => { if (e.key === 'Enter') open(n); });
+  });
+  box.addEventListener('click', e => { if (e.target === box || e.target.classList.contains('lb-close')) close(); });
+  box.querySelector('.lb-prev').addEventListener('click', e => { e.stopPropagation(); show(i - 1); });
+  box.querySelector('.lb-next').addEventListener('click', e => { e.stopPropagation(); show(i + 1); });
+  big.addEventListener('click', e => { e.stopPropagation(); show(i + 1); });
+  document.addEventListener('keydown', e => {
+    if (!box.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowRight') show(i + 1);
+    if (e.key === 'ArrowLeft') show(i - 1);
+  });
+})();
