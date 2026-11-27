@@ -389,3 +389,9 @@ html { scroll-padding-top: 78px; }
 .foot-links a:hover { color: var(--gold); }
 .more-rec-labels { margin: 16px 0 0; padding-top: 14px; border-top: 1px solid rgba(227,167,64,.2); font-size: 14px; color: #d9d0c3; }
 .more-rec-labels span { display: block; margin-bottom: 4px; font-size: 11.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); }
+/* Porträt im Profil */
+.about-portrait { margin: 0 0 40px; }
+.about-portrait img { display: block; width: 100%; height: auto; max-height: 520px; object-fit: cover; object-position: 50% 30%;
+  -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 52%, transparent 100%);
+          mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 52%, transparent 100%); }
+@media (max-width: 720px) { .about-portrait img { aspect-ratio: 4 / 3; object-position: 52% 20%; } .about-portrait { margin-bottom: 28px; } }
