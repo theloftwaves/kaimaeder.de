@@ -390,6 +390,9 @@ html { scroll-padding-top: 78px; }
 .more-rec-labels { margin: 16px 0 0; padding-top: 14px; border-top: 1px solid rgba(227,167,64,.2); font-size: 14px; color: #d9d0c3; }
 .more-rec-labels span { display: block; margin-bottom: 4px; font-size: 11.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); }
 /* Porträt im Profil */
-.about-portrait { --pw: min(1024px, calc(100vw - 48px)); width: var(--pw); margin: 0 0 40px calc((100% - var(--pw)) / 2); }
-.about-portrait img { display: block; width: 100%; height: auto; object-fit: cover; border-radius: 6px; }
-@media (max-width: 720px) { .about-portrait img { aspect-ratio: 5 / 3; object-fit: cover; object-position: 52% 22%; } .about-portrait { --pw: calc(100vw - 32px); margin-bottom: 28px; } }
+.about-top { display: flex; align-items: center; justify-content: space-between; gap: 48px; }
+.about-top .about-head { flex: 1 1 auto; min-width: 0; }
+.about-portrait { flex: 0 0 auto; width: 340px; margin: 0; }
+.about-portrait img { display: block; width: 100%; aspect-ratio: 4 / 3; height: auto; object-fit: cover; object-position: 51% 30%; border-radius: 6px; }
+@media (max-width: 900px) { .about-portrait { width: 260px; } .about-top { gap: 28px; } }
+@media (max-width: 720px) { .about-top { flex-direction: column-reverse; align-items: stretch; gap: 22px; } .about-portrait { width: 100%; } .about-portrait img { aspect-ratio: 5 / 3; object-position: 52% 22%; } }
